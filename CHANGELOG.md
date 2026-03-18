@@ -4,6 +4,44 @@ All notable changes to this project are documented here.
 
 ---
 
+## [1.5.0] — 2026-03-18
+
+### Added
+- 5 new pattern categories: reasoning chain artifacts, sycophantic tone, acknowledgment loops, confidence calibration phrases, excessive structure
+- New "Rhythm and uniformity" section — checks for sentence length uniformity, paragraph length uniformity, missing first-person perspective, and read-aloud test guidance
+- New "When to rewrite from scratch vs. patch" threshold — advises full rewrites when AI density is too high for patching
+- 5 rewrite principles in tone calibration section (vary length, be concrete, have a voice, cut neutrality, earn emphasis)
+- New "Meta Patterns" group in README pattern table
+- Expanded credits: brandonwise/humanizer (statistical analysis research), OpenClaw humanizer ecosystem (community patterns)
+
+### Changed
+- Pattern count: 23 → 30 categories
+- `README.md` — updated pattern count, added Meta Patterns table, expanded credits with source descriptions
+- Communication Patterns table in README now includes all communication patterns
+
+---
+
+## [1.4.0] — 2026-03-17
+
+### Added
+- 15 new word/phrase replacements: nuanced, crucial, multifaceted, ecosystem, myriad, plethora, deep dive/dive into, unpack, bolster, spearhead, resonate, revolutionize, facilitate, underpin
+- New pattern category: "let's" constructions (false-collaborative openers like "let's explore," "let's break this down")
+- Skill now covers 23 pattern categories with 58 word/phrase replacements
+
+### Changed
+- Deduplicated filler phrases that appeared in both the word table and the filler section
+- `README.md` — updated pattern count (22 → 23), replacement table count (43 → 58), added "let's" constructions row to pattern table
+
+---
+
+## [1.3.0] — 2026-03-17
+
+### Changed
+- Em dash detection now catches double-hyphen (`--`) in addition to Unicode em dash (`—`)
+- `README.md` — updated formatting pattern description to mention `--`
+
+---
+
 ## [1.2.0] — 2026-03-06
 
 ### Added

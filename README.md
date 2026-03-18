@@ -24,7 +24,7 @@ A one-shot "make this sound human" prompt catches the obvious stuff. This skill 
 - **Structured audit** — returns identified issues with quoted text, the rewrite, a change summary, and a second-pass audit in four discrete sections. You see exactly what changed and why.
 - **Two-pass detection** — the second pass re-reads the rewrite and catches patterns that survive the first edit: recycled transitions, lingering inflation, copula swaps that snuck through.
 - **43-entry replacement table** — not vibes-based. Every flagged word has a specific, plainer alternative. "Leverage" → "use." "Commence" → "start." No judgment calls.
-- **22 pattern categories** — see the full list below, each with before/after examples.
+- **30 pattern categories** — see the full list below, each with before/after examples. Includes rhythm/uniformity checks and a rewrite-vs-patch threshold.
 - **Claude Code native** — installs as a skill with YAML frontmatter, works with slash commands, integrates into your existing workflow.
 
 ## Installation & Usage
@@ -75,7 +75,7 @@ The skill returns four sections:
 3. **What changed** — summary of the major edits
 4. **Second-pass audit** — re-reads the rewrite and catches any surviving tells
 
-## 22 Patterns Detected
+## 30 Patterns Detected
 
 ### Content Patterns
 
@@ -115,9 +115,22 @@ The skill returns four sections:
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
 | 19 | **Chatbot artifacts** | "I hope this helps! Let me know if..." | Remove entirely |
-| 20 | **Cutoff disclaimers** | "While details are limited in available sources..." | Find sources or remove |
-| 21 | **Generic conclusions** | "The future looks bright," "Only time will tell" | Specific closing thought or cut |
-| 22 | **Emotional flatline** | "What surprised me most," "I was fascinated to discover" | Earn the emotion or cut the claim |
+| 20 | **"Let's" constructions** | "Let's explore," "Let's break this down" | Just start with the point |
+| 21 | **Cutoff disclaimers** | "While details are limited in available sources..." | Find sources or remove |
+| 22 | **Generic conclusions** | "The future looks bright," "Only time will tell" | Specific closing thought or cut |
+| 23 | **Emotional flatline** | "What surprised me most," "I was fascinated to discover" | Earn the emotion or cut the claim |
+| 24 | **Reasoning chain artifacts** | "Let me think step by step," "Breaking this down" | State conclusion, then evidence |
+| 25 | **Sycophantic tone** | "Great question!", "You're absolutely right!" | Remove entirely |
+| 26 | **Acknowledgment loops** | "You're asking about," "To answer your question" | Just answer directly |
+| 27 | **Confidence calibration** | "It's worth noting," "Interestingly," "Surprisingly" | Let the fact speak for itself |
+
+### Meta Patterns
+
+| # | Pattern | Before | After |
+|---|---------|--------|-------|
+| 28 | **Excessive structure** | 5 headers in 200 words, "Overview:", "Key Points:" | Merge sections, use specific headers |
+| 29 | **Rhythm and uniformity** | All sentences 15–25 words, all paragraphs same length | Mix short/long, fragments, questions |
+| 30 | **Rewrite-vs-patch threshold** | 5+ vocabulary flags + 3+ pattern categories + uniform rhythm | Advise full rewrite, not patching |
 
 ## Full Example
 
@@ -152,8 +165,10 @@ That's 35+ AI tells.
 ## Credits
 
 Pattern research informed by:
-- Wikipedia's [Signs of AI-generated text](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) documentation
+- Wikipedia's [Signs of AI-generated text](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) documentation — the canonical reference for AI writing tells, maintained by Wikipedia editors
 - [blader/humanizer](https://github.com/blader/humanizer) Claude Code skill
+- [brandonwise/humanizer](https://github.com/brandonwise/humanizer) — statistical analysis research (burstiness, sentence length variation, trigram repetition) and rewrite philosophy
+- [OpenClaw](https://github.com/openclaw/openclaw) humanizer skill ecosystem — community patterns and vocabulary research
 
 ## License
 
