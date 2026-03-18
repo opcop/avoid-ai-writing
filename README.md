@@ -3,7 +3,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/conorbronsdon/avoid-ai-writing?style=social)](https://github.com/conorbronsdon/avoid-ai-writing/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that audits and rewrites content to remove AI writing patterns ("AI-isms").
+A skill for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and [OpenClaw](https://github.com/openclaw/openclaw) that audits and rewrites content to remove AI writing patterns ("AI-isms").
 
 Paste any text, get back a clean version with every AI tell identified, fixed, and explained. A built-in second pass re-reads the rewrite to catch patterns that survived the first edit.
 
@@ -25,17 +25,19 @@ A one-shot "make this sound human" prompt catches the obvious stuff. This skill 
 - **Two-pass detection** — the second pass re-reads the rewrite and catches patterns that survive the first edit: recycled transitions, lingering inflation, copula swaps that snuck through.
 - **102-entry word replacement table across 3 tiers** — not vibes-based. Every flagged word has a specific, plainer alternative. "Leverage" → "use." "Commence" → "start." Tier 1 words are always flagged, Tier 2 words flag when they cluster, Tier 3 words flag only at high density. This reduces false positives while catching real AI tells.
 - **30 pattern categories** — see the full list below, each with before/after examples. Includes rhythm/uniformity checks and a rewrite-vs-patch threshold.
-- **Claude Code native** — installs as a skill with YAML frontmatter, works with slash commands, integrates into your existing workflow.
+- **Works with Claude Code and OpenClaw** — single `SKILL.md` with compatible frontmatter for both platforms.
 
 ## Installation & Usage
 
-### Option 1: Clone into skills directory
+### Claude Code
+
+**Option 1: Clone into skills directory**
 
 ```bash
 git clone https://github.com/conorbronsdon/avoid-ai-writing ~/.claude/skills/avoid-ai-writing
 ```
 
-### Option 2: Copy the file directly
+**Option 2: Copy the file directly**
 
 Download `SKILL.md` and place it in any directory that Claude Code can read. Reference it in your `CLAUDE.md`:
 
@@ -43,7 +45,7 @@ Download `SKILL.md` and place it in any directory that Claude Code can read. Ref
 - Editing for AI patterns → read `path/to/avoid-ai-writing/SKILL.md`
 ```
 
-### Option 3: Use as a slash command
+**Option 3: Use as a slash command**
 
 Create a command file (e.g., `~/.claude/commands/clean-ai-writing.md`):
 
@@ -59,9 +61,23 @@ Read and follow the instructions in ~/.claude/skills/avoid-ai-writing/SKILL.md
 
 Then use `/clean-ai-writing <your text>` in Claude Code.
 
+### OpenClaw
+
+**Option 1: Install from ClawHub**
+
+```bash
+clawhub install avoid-ai-writing
+```
+
+**Option 2: Clone into skills directory**
+
+```bash
+git clone https://github.com/conorbronsdon/avoid-ai-writing ~/.openclaw/skills/avoid-ai-writing
+```
+
 ### Triggering the skill
 
-Once installed, ask Claude Code to clean up AI writing:
+Once installed, ask your assistant to clean up AI writing:
 
 - "Remove AI-isms from this post"
 - "Audit this draft for AI tells"

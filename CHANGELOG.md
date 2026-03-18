@@ -4,6 +4,18 @@ All notable changes to this project are documented here.
 
 ---
 
+## [2.2.0] — 2026-03-18
+
+### Added
+- OpenClaw compatibility — added `version` and `metadata.openclaw` to SKILL.md frontmatter
+- OpenClaw installation instructions in README (ClawHub and manual)
+- Skill now works with both Claude Code and OpenClaw from a single `SKILL.md`
+
+### Changed
+- `README.md` — broadened description to reference both platforms, reorganized installation into Claude Code and OpenClaw sections
+
+---
+
 ## [2.1.0] — 2026-03-18
 
 ### Added

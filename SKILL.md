@@ -1,6 +1,10 @@
 ---
 name: avoid-ai-writing
 description: Audit and rewrite content to remove AI writing patterns ("AI-isms"). Use this skill when asked to "remove AI-isms," "clean up AI writing," "edit writing for AI patterns," "audit writing for AI tells," or "make this sound less like AI."
+version: 2.2.0
+metadata:
+  openclaw:
+    emoji: "\u270D\uFE0F"
 ---
 
 # Avoid AI Writing — Audit & Rewrite
